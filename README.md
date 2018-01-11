@@ -10,7 +10,7 @@ by adding `event_bus_logger` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:event_bus_logger, "~> 0.0.1"}
+    {:event_bus_logger, "~> 0.1.0-beta1"}
   ]
 end
 ```
