@@ -10,7 +10,7 @@ by adding `event_bus_logger` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:event_bus_logger, "~> 0.1.0-beta1"}
+    {:event_bus_logger, "~> 0.1.0-beta3"}
   ]
 end
 ```
@@ -21,7 +21,8 @@ end
 config :event_bus_logger,
   enabled: {:system, "EB_LOGGER_ENABLED", "true"}, # is it enabled
   level: {:system, "EB_LOGGER_LEVEL", :info}, # logging level
-  topics: {:system, "EB_LOGGER_TOPICS", "metrics_received;metrics_summed"} || [".*"]
+  topics: {:system, "EB_LOGGER_TOPICS", ".*"}, # can be seperated by ';'
+  light_logging: {:system, "EB_LOGGER_LIGHT", "false"} # enable light logging
 ```
 
 ## Documentation
