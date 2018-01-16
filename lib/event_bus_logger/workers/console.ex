@@ -30,8 +30,17 @@ defmodule EventBus.Logger.Worker.Console do
   @doc false
   def handle_cast({topic, id}, state) do
     event = EventBus.fetch_event({topic, id})
-    Logger.log(Config.level(), fn -> inspect(event) end)
+    log(event)
     EventBus.mark_as_completed({__MODULE__, topic, id})
     {:noreply, state}
+  end
+
+  defp log(event) do
+    case Config.light_logging?() do
+      true  ->
+        Logger.log(Config.level(), fn -> "[EVENTBUS] #{event.topic}" end)
+      false ->
+        Logger.log(Config.level(), fn -> inspect(event) end)
+    end
   end
 end

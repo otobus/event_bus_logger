@@ -5,6 +5,7 @@ use Mix.Config
 config :event_bus_logger,
   enabled: {:system, "EB_LOGGER_ENABLED", "true"},
   level: {:system, "EB_LOGGER_PERSIST_IN_MS", :info},
-  topics: {:system, "EB_LOGGER_TOPICS", ".*"}
+  topics: {:system, "EB_LOGGER_TOPICS", ".*"},
+  light_logging: {:system, "EB_LOGGER_LIGHT", "false"}
 
 import_config "#{Mix.env}.exs"

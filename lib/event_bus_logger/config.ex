@@ -12,6 +12,13 @@ defmodule EventBus.Logger.Config do
     |> to_bool()
   end
 
+  def light_logging? do
+    @app
+    |> Application.get_env(:light_logging)
+    |> get_env_var()
+    |> to_bool()
+  end
+
   def level do
     @app
     |> Application.get_env(:level)
