@@ -3,9 +3,9 @@ defmodule EventBus.Logger.Application do
   The EventBus.Logger Application Service.
   """
   use Application
+  alias EventBus.Logger, as: EventBusLogger
   alias EventBus.Logger.Config
   alias EventBus.Logger.Supervisor.Console, as: ConsoleSupervisor
-  alias EventBus.Logger.Worker.Console, as: ConsoleWorker
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
@@ -16,7 +16,7 @@ defmodule EventBus.Logger.Application do
       ], strategy: :one_for_one, name: EventBus.Logger.Supervisor)
 
     if Config.enabled?() do
-      EventBus.subscribe({ConsoleWorker, Config.topics()})
+      EventBus.subscribe({EventBusLogger, Config.topics()})
     end
 
     link
