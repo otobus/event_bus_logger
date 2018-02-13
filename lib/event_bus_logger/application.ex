@@ -16,7 +16,7 @@ defmodule EventBus.Logger.Application do
       ], strategy: :one_for_one, name: EventBus.Logger.Supervisor)
 
     if Config.enabled?() do
-      EventBus.subscribe({EventBusLogger, Config.topics()})
+      EventBus.subscribe({EventBus.Logger, Config.topics()})
     end
 
     link

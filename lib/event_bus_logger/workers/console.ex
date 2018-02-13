@@ -31,7 +31,7 @@ defmodule EventBus.Logger.Worker.Console do
   def handle_cast({topic, id}, state) do
     event = EventBus.fetch_event({topic, id})
     log(event)
-    EventBus.mark_as_completed({__MODULE__, topic, id})
+    EventBus.mark_as_completed({EventBus.Logger, topic, id})
     {:noreply, state}
   end
 
