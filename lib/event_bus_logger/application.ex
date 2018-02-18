@@ -3,7 +3,6 @@ defmodule EventBus.Logger.Application do
   The EventBus.Logger Application Service.
   """
   use Application
-  alias EventBus.Logger, as: EventBusLogger
   alias EventBus.Logger.Config
   alias EventBus.Logger.Supervisor.Console, as: ConsoleSupervisor
 
