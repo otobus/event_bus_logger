@@ -2,7 +2,6 @@ use Mix.Config
 
 config :event_bus,
   observables: [
-    :notify,
     :register_topic,
     :unregister_topic,
     :subscribe,
