@@ -4,7 +4,7 @@ defmodule EventBus.Logger.Mixfile do
   def project do
     [
       app: :event_bus_logger,
-      version: "0.1.6",
+      version: "0.1.7",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env == :prod,
@@ -26,7 +26,7 @@ defmodule EventBus.Logger.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:event_bus, ">= 1.3.0"},
+      {:event_bus, ">= 1.6.0"},
       {:uuid, "~> 1.1", only: [:dev, :test]},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
